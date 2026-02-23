@@ -609,3 +609,9 @@ html {
   .nav-links{ display: none; }
   .menu-toggle{ display: block; }
 }
+
+.web-basics{
+  font-size: 14px;     /* mai mic decât restul */
+  white-space: nowrap; /* forțează un singur rând */
+  letter-spacing: -0.01em;
+}

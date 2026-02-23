@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Am pus 'Inter' pe primul loc */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -61,13 +60,61 @@ html {
 }
 
 /* --- SECȚIUNEA ACASĂ (HERO) --- */
+
+.hero-with-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-photo {
+    flex: 0 0 auto;
+}
+
+.hero-photo img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 999px; /* poză rotundă */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+}
+
+/* Poza în dreapta (default) */
+.photo-right {
+    flex-direction: row;
+}
+
+/* Poza în stânga */
+.photo-left {
+    flex-direction: row-reverse;
+}
+
+/* Subtitlul pe un singur rând */
+.hero-content h2 {
+    white-space: nowrap;
+}
+
+.sep {
+    opacity: 0.7;
+    margin: 0 6px;
+}
+
 .hero-section {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #fbfbfd; /* Albul cald/premium folosit de Apple */
+    background-color: #fbfbfd; /* Albul de Apple */
     padding: 0 20px;
 }
 
@@ -109,7 +156,7 @@ html {
     letter-spacing: -0.022em;
 }
 
-/* --- BUTOANE (Stilul "Pill" Apple) --- */
+/* --- BUTOANE --- */
 .cta-buttons {
     display: flex;
     gap: 16px;
@@ -192,8 +239,90 @@ html {
     max-width: 600px;
 }
 
+/* --- SETĂRI GENERALE SECȚIUNI --- */
+.section-container {
+    max-width: 980px; /* Lățimea standard pentru secțiunile de conținut Apple */
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 48px;
+    font-weight: 600;
+    color: #1d1d1f;
+    letter-spacing: -0.01em;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    font-size: 20px;
+    color: #86868b;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+
+/* --- SECȚIUNEA DESPRE --- */
+.about-section {
+    background-color: #fff; /* Fundal alb curat pentru contrast cu sectiunea Hero */
+    padding: 120px 20px;
+}
+
+.about-text {
+    max-width: 700px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.about-text p {
+    font-size: 21px;
+    line-height: 1.5;
+    color: #1d1d1f;
+    font-weight: 400;
+}
+
+/* --- GRILA DE SKILL-URI --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.skill-card {
+    background-color: #fbfbfd; /* Gri foarte deschis */
+    border-radius: 24px; /* Colțuri mult mai rotunjite, specific noilor design-uri iOS */
+    padding: 40px 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Un mic efect de ridicare (hover) foarte fin */
+.skill-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.skill-card h3 {
+    font-size: 19px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 24px;
+}
+
+.skill-list {
+    font-size: 16px;
+    color: #86868b;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+
+.highlight-card {
+    background-color: #f5f5f7; /* Un pic mai închis pentru a ieși în evidență */
+}
+
 /* =========================================
-   RESPONSIVITATE (Telefoane și Tablete)
+   RESPONSIVITATE
    ========================================= */
 @media (max-width: 768px) {
     .navbar {
@@ -201,7 +330,7 @@ html {
     }
 
     .nav-links {
-        display: none; /* Ascundem meniul complet pe mobil momentan pentru simplitate (stil Apple) */
+        display: none; 
     }
 
     .hero-content h1 {
@@ -228,4 +357,37 @@ html {
         width: 100%;
         text-align: center;
     }
+
+.skills-grid {
+        grid-template-columns: 1fr; /* Transformă cele 3 coloane într-o singură coloană pe mobil */
+        gap: 16px;
+    }
+
+    .section-title {
+        font-size: 36px;
+    }
+
+    .about-text p {
+        font-size: 18px;
+    }
+
+    .hero-with-photo {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-content h2 {
+        white-space: normal; 
+    }
+
+    .hero-photo img {
+        width: 180px;
+        height: 180px;
+    }
+
 }

@@ -1,166 +1,231 @@
-/* Resetare de bază pentru a elimina spațiile implicite ale browserului */
+/* Resetare de bază */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Am pus 'Inter' pe primul loc */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- NAVIGAȚIE --- */
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background-color: #1d1d1f;
+    color: #f5f5f7;
+}
+
+/* --- NAVIGAȚIE (Efectul Apple Frosted Glass) --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: fixed; /* Menține meniul sus când dai scroll */
+    padding: 12px 40px;
+    background-color: rgba(255, 255, 255, 0.7); /* Mai transparent */
+    backdrop-filter: saturate(180%) blur(20px); /* Blur intens tipic Apple */
+    -webkit-backdrop-filter: saturate(180%) blur(20px); /* Suport Safari */
+    position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* O linie abia vizibilă */
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
+.site-logo {
+    height: 44px; /* Dimensiune subtilă */
+    width: auto;
+    display: block;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 32px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    transition: color 0.3s;
+    color: #1d1d1f; /* Gri-ul închis specific textului Apple */
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #007BFF; /* Albastru la hover */
+    opacity: 1;
 }
 
 /* --- SECȚIUNEA ACASĂ (HERO) --- */
 .hero-section {
-    height: 100vh; /* Ocupă tot ecranul pe înălțime */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #f8f9fa; /* Un gri foarte deschis */
+    background-color: #fbfbfd; /* Albul cald/premium folosit de Apple */
     padding: 0 20px;
-    margin-top: 60px; /* Compensează înălțimea meniului fixat */
+}
+
+.hero-content {
+    max-width: 800px;
+    margin-top: 40px; /* Coboară conținutul puțin sub meniu */
 }
 
 .hero-content h1 {
-    font-size: 48px;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 64px;
+    color: #1d1d1f;
+    margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: -0.03em; /* Literele mai apropiate, tipic titlurilor mari Apple */
 }
 
+/* Numele integrat subtil, fără linii grele */
 .hero-content h1 span {
-    color: #007BFF; /* Evidențiază numele tău */
+    color: #1d1d1f;
 }
 
 .hero-content h2 {
-    font-size: 24px;
-    color: #555;
-    margin-bottom: 20px;
-    font-weight: 400;
+    font-size: 28px;
+    color: #86868b; /* Griul clasic pentru subtitluri Apple */
+    margin-bottom: 24px;
+    font-weight: 500;
+    letter-spacing: 0.004em;
 }
 
 .hero-content p {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 40px;
+    font-size: 19px;
+    color: #1d1d1f;
+    margin-bottom: 48px;
+    font-weight: 400;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.47059;
+    letter-spacing: -0.022em;
 }
 
-/* --- BUTOANE --- */
+/* --- BUTOANE (Stilul "Pill" Apple) --- */
 .cta-buttons {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     justify-content: center;
 }
 
 .btn {
-    padding: 12px 24px;
+    padding: 12px 22px;
     text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: all 0.3s;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 980px; /* Creează forma perfectă de pastilă */
+    transition: all 0.3s ease;
 }
 
+/* Butonul principal */
 .btn-primary {
-    background-color: #007BFF;
-    color: white;
-    border: 2px solid #007BFF;
+    background-color: #1d1d1f;
+    color: #fff;
+    border: 1px solid #1d1d1f;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    background-color: #424245; /* Un gri puțin mai deschis la hover */
+    border-color: #424245;
 }
 
+/* Butonul secundar */
 .btn-secondary {
     background-color: transparent;
-    color: #007BFF;
-    border: 2px solid #007BFF;
+    color: #1d1d1f;
+    border: 1px solid #1d1d1f;
 }
 
 .btn-secondary:hover {
-    background-color: #007BFF;
-    color: white;
+    background-color: #1d1d1f;
+    color: #fff;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+    background-color: #f5f5f7; /* Un gri foarte fin pentru footer */
+    color: #1d1d1f;
+    padding: 60px 20px 40px;
+    text-align: center;
+    border-top: 1px solid #d2d2d7;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 24px;
+}
+
+.social-icons a {
+    color: #1d1d1f;
+    font-size: 20px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    display: inline-block;
+}
+
+.social-icons a:hover {
+    opacity: 1;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #86868b;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #d2d2d7;
+    width: 100%;
+    max-width: 600px;
 }
 
 /* =========================================
    RESPONSIVITATE (Telefoane și Tablete)
    ========================================= */
 @media (max-width: 768px) {
-    
-    /* 1. Meniul de navigație se stivuiește pe verticală */
     .navbar {
-        flex-direction: column;
-        padding: 15px 20px;
-        gap: 15px;
+        padding: 12px 20px;
     }
 
     .nav-links {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: none; /* Ascundem meniul complet pe mobil momentan pentru simplitate (stil Apple) */
     }
 
-    /* 2. Micșorăm textul din secțiunea Acasă */
     .hero-content h1 {
-        font-size: 32px;
+        font-size: 40px;
     }
 
     .hero-content h2 {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .hero-content p {
-        font-size: 16px;
-        padding: 0 10px;
+        font-size: 17px;
     }
 
-    /* 3. Butoanele se pun unul sub altul pe ecrane mici */
     .cta-buttons {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
         width: 100%;
-        max-width: 300px;
-        margin: 0 auto; /* Centrează butoanele */
+        max-width: 280px;
+        margin: 0 auto;
     }
 
     .btn {
-        width: 100%; /* Face butoanele să ocupe toată lățimea disponibilă */
+        width: 100%;
+        text-align: center;
     }
 }
